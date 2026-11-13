@@ -22,21 +22,21 @@ clean:
 	rm -f $(CSV_FILES)
 
 distclean: clean
-	rm -f MDS_Core_V3_4.xml MDS_Design_V3_4.xml MDS_RecordLinkage_V3_4.xml MDS_NutritionalEpidemiology_V3_4.xml MDS_ChronicDiseases_V3_4.xml Saxon-HE-12.4.jar xmlresolver-6.0.4.jar
+	rm -f MDS_Core_V3_4.xml MDS_Design_V3_4.xml MDS_RecordLinkage_V3_4.xml MDS_NutritionalEpidemiology_V3_4.xml MDS_ChronicDiseases_V3_4.xml Saxon-HE-13.1.jar xmlresolver-6.1.1.jar
 
-MDS_Design_V3_4.csv: MDS_Design_V3_4.xml ArtDecor2Excel.xsl Saxon-HE-12.4.jar xmlresolver-6.0.4.jar
+MDS_Design_V3_4.csv: MDS_Design_V3_4.xml ArtDecor2Excel.xsl Saxon-HE-13.1.jar xmlresolver-6.1.1.jar
 	java -cp "*" net.sf.saxon.Transform -xsl:ArtDecor2Excel.xsl -s:$< -o:$@
 
-MDS_Core_V3_4.csv: MDS_Core_V3_4.xml ArtDecor2Excel.xsl Saxon-HE-12.4.jar xmlresolver-6.0.4.jar
+MDS_Core_V3_4.csv: MDS_Core_V3_4.xml ArtDecor2Excel.xsl Saxon-HE-13.1.jar xmlresolver-6.1.1.jar
 	java -cp "*" net.sf.saxon.Transform -xsl:ArtDecor2Excel.xsl -s:$< -o:$@
 
-MDS_RecordLinkage_V3_4.csv: MDS_RecordLinkage_V3_4.xml ArtDecor2Excel.xsl Saxon-HE-12.4.jar xmlresolver-6.0.4.jar
+MDS_RecordLinkage_V3_4.csv: MDS_RecordLinkage_V3_4.xml ArtDecor2Excel.xsl Saxon-HE-13.1.jar xmlresolver-6.1.1.jar
 	java -cp "*" net.sf.saxon.Transform -xsl:ArtDecor2Excel.xsl -s:$< -o:$@
 
-MDS_NutritionalEpidemiology_V3_4.csv: MDS_NutritionalEpidemiology_V3_4.xml ArtDecor2Excel.xsl Saxon-HE-12.4.jar xmlresolver-6.0.4.jar
+MDS_NutritionalEpidemiology_V3_4.csv: MDS_NutritionalEpidemiology_V3_4.xml ArtDecor2Excel.xsl Saxon-HE-13.1.jar xmlresolver-6.1.1.jar
 	java -cp "*" net.sf.saxon.Transform -xsl:ArtDecor2Excel.xsl -s:$< -o:$@
 
-MDS_ChronicDiseases_V3_4.csv: MDS_ChronicDiseases_V3_4.xml ArtDecor2Excel.xsl Saxon-HE-12.4.jar xmlresolver-6.0.4.jar
+MDS_ChronicDiseases_V3_4.csv: MDS_ChronicDiseases_V3_4.xml ArtDecor2Excel.xsl Saxon-HE-13.1.jar xmlresolver-6.1.1.jar
 	java -cp "*" net.sf.saxon.Transform -xsl:ArtDecor2Excel.xsl -s:$< -o:$@
 
 MDS_Core_Design_V3_4.csv: $(CSV_FILES_MAIN)
@@ -55,9 +55,9 @@ MDS_V3_4.csv: $(CSV_FILES)
 		tail -n+2 $$file && echo ""; \
 	done >> $@
 
-Saxon-HE-12.4.jar:
-	mvn dependency:copy -Dartifact=net.sf.saxon:Saxon-HE:12.4 -DoutputDirectory=.
+Saxon-HE-13.1.jar:
+	mvn dependency:copy -Dartifact=net.sf.saxon:Saxon-HE:13.1 -DoutputDirectory=.
 
-xmlresolver-6.0.4.jar:
-	mvn dependency:copy -Dartifact=org.xmlresolver:xmlresolver:6.0.4 -DoutputDirectory=.
+xmlresolver-6.1.1.jar:
+	mvn dependency:copy -Dartifact=org.xmlresolver:xmlresolver:6.1.1 -DoutputDirectory=.
 

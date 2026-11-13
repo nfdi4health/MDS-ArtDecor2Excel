@@ -19,7 +19,7 @@ MDS_ChronicDiseases_V3_4.xml:
 	curl --location -H "Accept: application/xml" 'http://art-decor.org/exist/apps/api/dataset/2.16.840.1.113883.3.1937.777.64.1.4/2025-12-09T14%3A56%3A50/$$extract?language=en-US&format=xml&download=true' -o $@
 
 clean: 
-	rm -f $(CSV_FILES)
+	rm -f $(CSV_FILES) MDS_Core_Design_V3_4.csv MDS_V3_4.csv
 
 distclean: clean
 	rm -f MDS_Core_V3_4.xml MDS_Design_V3_4.xml MDS_RecordLinkage_V3_4.xml MDS_NutritionalEpidemiology_V3_4.xml MDS_ChronicDiseases_V3_4.xml Saxon-HE-13.1.jar xmlresolver-6.1.1.jar
